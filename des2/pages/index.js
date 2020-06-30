@@ -90,12 +90,24 @@ const FooterText = styled.p`
   color: white;
   text-align: right;
   margin: 1.2em 2em 0 0;
+  font-weight: 400;
 `;
 
 const GhibliLink = styled.a.attrs({href: 'https://studioghibli.com.br/'})`
   text-decoration: none;
   height: 100%;
   display: inline-block;
+`;
+
+const LoadingDiv = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(123,213,228);
+  font-size: 80px;
 `;
 
 const useReleaseDates = movies => {
@@ -174,7 +186,7 @@ const IndexPage = () => {
     );
   };
 
-  if (loading) {return(<div>Loading...</div>)}
+  if (loading) {return(<LoadingDiv><img src='totologo.png'></img>Loading!</LoadingDiv>)}
   return (
     <div>
       <Header>
