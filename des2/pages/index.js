@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Card from "../components/Card/index";
 import useDirectors from "../hooks/useDirectors";
+import { getMovies } from '../services/ghibliapi';
 
 
 const HeaderText = styled.h1`
@@ -22,7 +23,7 @@ const Logo = styled.img`
   margin: 0 0.5em 0 0;
 `;
 
-const HeaderTextBox = styled.a.attrs({href: '/'})`
+const HeaderTextBox = styled.a.attrs({ href: '/' })`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -43,7 +44,7 @@ const CardList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  max-width: 80%
+  max-width: 80%;
 `;
 
 const CardListItem = styled.li`
@@ -55,9 +56,9 @@ const SelectorContainer = styled.div`
   display: flex;
   justify-content: space-around;
   width: 70%;
- `;
+`;
 
- const Selector = styled.select`
+const Selector = styled.select`
   margin: 0;
   font-size: 1.6em;
   width: 13em;
@@ -73,11 +74,11 @@ const SelectorContainer = styled.div`
     transform: scale(1.01);
     cursor: pointer;
   }
- `;
+`;
 
- const ContentBox = styled.div`
-  min-height: calc(100vh - 15em)
-  `;
+const ContentBox = styled.div`
+  min-height: calc(100vh - 15em);
+`;
 
 const FooterBox = styled.footer`
   height: 4em;
@@ -93,7 +94,7 @@ const FooterText = styled.p`
   font-weight: 400;
 `;
 
-const GhibliLink = styled.a.attrs({href: 'https://studioghibli.com.br/'})`
+const GhibliLink = styled.a.attrs({ href: 'https://studioghibli.com.br/' })`
   text-decoration: none;
   height: 100%;
   display: inline-block;
@@ -152,23 +153,20 @@ const useMovieFilters = movies => {
   return [filteredMovies, setFilters];
 };
 
-
 const useMovies = () => {
   const [movies, setMovies] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch("https://ghibliapi.herokuapp.com/films")
-      .then(response => response.json())
-      .then(data => {
+    getMovies()
+      .then(movies => {
         setLoading(false);
-        setMovies(data);
+        setMovies(movies);
       });
   }, []);
 
   return [movies, loading];
 };
-
 
 const IndexPage = () => {
   const [movies, loading] = useMovies();
@@ -186,7 +184,16 @@ const IndexPage = () => {
     );
   };
 
-  if (loading) {return(<LoadingDiv><img src='totologo.png'></img>Loading!</LoadingDiv>)}
+  const getPeopleOnCard = (movie) => {
+    const peopleList = []
+      movie.people.forEach(singlePerson => {
+          peopleList.push(singlePerson['name']);
+        })
+    return peopleList;
+  }
+
+
+  if (loading) { return (<LoadingDiv><img id='tot_log' src='totologo.png'></img>Loading!</LoadingDiv>) }
   return (
     <div>
       <Header>
@@ -197,10 +204,10 @@ const IndexPage = () => {
           </div>
 
           <div>
-            <HeaderText>database</HeaderText> 
-          </div>  
+            <HeaderText>database</HeaderText>
+          </div>
 
-        </HeaderTextBox>    
+        </HeaderTextBox>
 
         <GhibliLink><Logo src='logo.jpg'></Logo></GhibliLink>
 
@@ -225,7 +232,7 @@ const IndexPage = () => {
           </Selector>
 
         </SelectorContainer>
-
+        
         <CardList>
           {filteredMovies.length > 0 ? (
             filteredMovies.map(movie => (
@@ -236,13 +243,13 @@ const IndexPage = () => {
                   release_date={movie.release_date}
                   description={movie.description}
                   score={movie.rt_score}
-                  //director
+                  people={getPeopleOnCard(movie)}          
                 />
               </CardListItem>
             ))
           ) : (
-            <div>Nenhum filme foi encontrado</div>
-          )}
+              <div>Nenhum filme foi encontrado</div>
+            )}
         </CardList>
 
       </ContentBox>

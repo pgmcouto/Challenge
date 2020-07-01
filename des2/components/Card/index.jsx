@@ -34,7 +34,7 @@ const CardScore = styled.div`
 `;
 
 const CardDescription = styled.p`
-  margin: 1em 0 0 0.2em;
+  margin: 0 0 0 0.2em;
   font-size: 18px;
   color: rgb(111,135,142);
   text-align: justify;
@@ -58,7 +58,23 @@ const CardRelease = styled.span`
   margin: 0;
 `;
 
-const Card = ({ title, description, score, director, release_date }) => (
+const CardPeople = styled.p`
+  color: rgb(28,160,209);
+  font-size: 18px;
+  margin: 1em 0 0 0.2em;
+`;
+
+const writePeople = (people) => {
+  if (people.length == 0){
+    return ('No characters registered on the API!');
+  }
+  else {
+    return(people.join(', '));
+  }
+}
+
+const Card = ({ title, description, score, director, release_date, people }) => 
+(
   <Container>
     <CardHeader>
       <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
@@ -71,8 +87,10 @@ const Card = ({ title, description, score, director, release_date }) => (
       </div>
       <CardScore><span>{score}</span></CardScore>
     </CardHeader>
+    <CardPeople>Characters: {writePeople(people)} </CardPeople>
     <CardDescription>{description}</CardDescription>
   </Container>
 );
+
 
 export default Card;
