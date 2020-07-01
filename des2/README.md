@@ -1,42 +1,22 @@
-# Hello World example
+# The Globo Challenge
 
-This example shows the most basic idea behind Next. We have 2 pages: `pages/index.js` and `pages/about.js`. The former responds to `/` requests and the latter to `/about`. Using `next/link` you can add hyperlinks between them with universal routing capabilities. The `day` directory shows that you can have subdirectories.
+This repository contains the codes required to fulfill the tasks presented by both challenges. The first folder contains the Python code responsible for treating the "planilha.txt" file. The second one contains the codes needed in order to build the web Ghibli API application.
 
-## Deploy your own
+## First Challenge
 
-Deploy the example using [Vercel](https://vercel.com):
+The first folder contains the base file (planilha.txt), the developed python script and an example json output. As both imported libraries are native to Python, all is needed to run the script is a Python3 interpreter.  
+The command **python regex.py** should do the trick.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/hello-world)
+## Second Challenge
 
-## How to use
+As for the second challenge, the entirety of the source codes (and the *public* images folder) is comprised on the second folder. The structure is divided in folders representing different scopes. The *styles* folder contains styled tags, separated by context. The *services* folder contains the (very simple) API handling. The other folders are mostly self-explanatory.
 
-### Using `create-next-app`
+The Application has been made using **NEXT.js** as its base framework. The final result is built and deployed via **Vercel**, and can be accessed [`here`](https://ghibli-list.pgmcouto.vercel.app/).
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+If there is need to build it locally, a simple chain of commands should suffice (assuming that a recent version of Node.js is already installed):
 
-```bash
-npm init next-app --example hello-world hello-world-app
-# or
-yarn create next-app --example hello-world hello-world-app
-```
+1) Download the source codes;
+2) Install the necessary dependencies contained on *package.JSON* via the command **npm i**;
+3) If willing to run it in development mode, run **npm run dev**. Otherwise, build the application with **npm build** and then deploy it with **npm run prod**.
 
-### Download manually
-
-Download the example:
-
-```bash
-curl https://codeload.github.com/vercel/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/hello-world
-cd hello-world
-```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
-# or
-yarn
-yarn dev
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+# Thanks!
