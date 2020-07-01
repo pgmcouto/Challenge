@@ -34,7 +34,7 @@ const CardScore = styled.div`
 `;
 
 const CardDescription = styled.p`
-  margin: 0 0 0 0.2em;
+  margin: 0.5em 0 0 0.3em;
   font-size: 18px;
   color: rgb(111,135,142);
   text-align: justify;
@@ -59,9 +59,9 @@ const CardRelease = styled.span`
 `;
 
 const CardPeople = styled.p`
-  color: rgb(28,160,209);
-  font-size: 18px;
-  margin: 1em 0 0 0.2em;
+  color: rgb(131,160,167);
+  font-size: 16px;
+  margin: 0.5em 0 0 0.3em;
 `;
 
 const writePeople = (people) => {
@@ -80,9 +80,9 @@ const Card = ({ title, description, score, director, release_date, people }) =>
       <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
         <CardTitle>{title}</CardTitle>
         <p style={{margin: '0 0 0 0.2em', fontSize:'22px', color:'rgb(28,160,209)', marginLeft: '0.2em'}}>
-          <CardDirector> Diretor: {director} </CardDirector>
+          <CardDirector> Director: {director} </CardDirector>
           {" | "}
-          <CardRelease> Lançamento: {release_date} </CardRelease>
+          <CardRelease> Release Date: {release_date} </CardRelease>
         </p>
       </div>
       <CardScore><span>{score}</span></CardScore>

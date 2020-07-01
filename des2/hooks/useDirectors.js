@@ -1,6 +1,5 @@
 import React from "react";
 
-export const THEME_MODE = true;
 
 const useDirectors = movies => {
   const [directors, setDirectors] = React.useState([]);
