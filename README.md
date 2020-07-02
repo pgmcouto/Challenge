@@ -17,6 +17,6 @@ If there is need to build it locally, a simple chain of commands should suffice 
 
 1) Download the source codes;
 2) Install the necessary dependencies contained on *package.JSON* via the command **npm i**;
-3) If willing to run it in development mode, run **npm run dev**. Otherwise, build the application with **npm build** and then deploy it with **npm run prod**.
+3) If willing to run it in development mode, run **npm run dev**. Otherwise, build the application with **npm run build** and then deploy it with **npm run start**.
 
 # Thanks!
