@@ -1,5 +1,6 @@
 import React from "react";
 
+// Hook for filtered movies: composes the movie list according to selector data
 const useMovieFilters = movies => {
     const [filters, setFilters] = React.useState({});
   

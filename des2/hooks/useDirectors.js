@@ -1,6 +1,6 @@
 import React from "react";
 
-
+// Retrieves the unique directors
 const useDirectors = movies => {
   const [directors, setDirectors] = React.useState([]);
 

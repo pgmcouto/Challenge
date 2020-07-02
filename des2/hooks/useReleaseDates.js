@@ -1,5 +1,6 @@
 import React from "react";
 
+// Retrieve the unique release dates
 const useReleaseDates = movies => {
     const [releaseDates, setReleaseDates] = React.useState([]);
   

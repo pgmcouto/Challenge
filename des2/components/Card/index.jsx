@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-
 import Container from "./Container";
 
+// Stylings...
 const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -73,6 +73,7 @@ const writePeople = (people) => {
   }
 }
 
+// Sets up card structure. Basic element of the app.
 const Card = ({ title, description, score, director, release_date, people }) => 
 (
   <Container>

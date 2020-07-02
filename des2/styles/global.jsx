@@ -1,5 +1,6 @@
 import {createGlobalStyle} from 'styled-components'
 
+// Global styles definition. Needed to adress body issues
 export default createGlobalStyle`
 
 html,

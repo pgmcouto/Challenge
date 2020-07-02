@@ -22,6 +22,7 @@ import { FooterBox } from '../styles/footer';
 import { FooterText } from '../styles/footer';
 
 
+// Styles message for filter parameters that return no movies
 const BlankMessage = styled.div`
   color: rgb(28,160,209);
   min-width: 100%;
@@ -29,6 +30,7 @@ const BlankMessage = styled.div`
   margin-top: 2em;
 `;
 
+// Creates a list with character names from the character info arrays
 const getPeopleOnCard = (movie) => {
   const peopleList = []
     movie.people.forEach(singlePerson => {
@@ -37,6 +39,7 @@ const getPeopleOnCard = (movie) => {
   return peopleList;
 }
 
+// Renders page
 const IndexPage = () => {
   const [movies, loading] = useMovies();
 
