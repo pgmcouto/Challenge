@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Head from 'next/head'
 import Card from "../components/Card/index";
 import useDirectors from "../hooks/useDirectors";
 import useMovies from "../hooks/useMovies";
@@ -54,6 +55,12 @@ const IndexPage = () => {
 
   if (loading) { return (<LoadingDiv><LoadingImg id='tot_log' src='totologo.png'></LoadingImg>Loading!</LoadingDiv>) }
   return (
+  <div>
+    <Head>
+      <title>The Ghibli Database</title>
+      <link rel="icon" href="/anime.png"/>
+    </Head>
+
     <div>
       <Header>
         <HeaderTextBox>
@@ -107,6 +114,7 @@ const IndexPage = () => {
       </ContentBox>
       <FooterBox><FooterText>Pedro Couto, 2020</FooterText></FooterBox>
     </div>
+  </div>
   );
 };
 
